@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import SubscribeForm
 from .models import Subscriber
+
 def coming_soon(request):
     form = SubscribeForm()
     if request.method == 'POST':
@@ -11,3 +12,6 @@ def coming_soon(request):
             subscriber.save()
             return render(request, 'main/thank_you.html')
     return render(request, 'main/coming_soon.html', {'form': form})
+
+def handle_404(request, invalid_url):
+    return render(request, '404/404.html')
