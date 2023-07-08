@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="text-center">
-            <h1 class="display-4">Keyvan Safe</h1>
-            <p class="display-5">Professional PPE Provider</p>
+    <div class="text-center">
+        <div class="logo-container">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="logo">
         </div>
+    </div>
+    
         <hr>
         <div class="content">
             {% block content %}{% endblock %}
