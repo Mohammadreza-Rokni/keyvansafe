@@ -1,33 +1,17 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block content %}
-<div class="container">
-    <div class="logo-container">
-      <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="logo">
-    </div>
-    <div class="content">
-      <h1 class="display-4">منتظرمان باشید</h1>
-      <p class="lead">در حال طراحی جامع ترین سایت تجهیزات ایمنی هستیم</p>
-      <p class="lead">شگفت زده خواهید شد</p>
+<div class="content">
+    <div class="jumbotron text-center">
+
+        <p>برای به روز ماندن در خبرنامه ما عضو شوید</p>
+        <form class="form-inline justify-content-center" method="post" action="{% url 'main:coming_soon' %}">
+            {% csrf_token %}
+            <div class="form-group mx-sm-3 mb-2">
+                {{ form.email }}
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">عضویت</button>
+        </form>
     </div>
 </div>
-
-    <hr>
-    <div class="content">
-        <div class="jumbotron text-center">
-
-            <p>برای به روز ماندن در خبرنامه ما عضو شوید</p>
-            <form class="form-inline justify-content-center" method="post" action="{% url 'main:coming_soon' %}">
-                {% csrf_token %}
-                <div class="form-group mx-sm-3 mb-2">
-                    {{ form.email }}
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">عضویت</button>
-            </form>
-        </div>
-    </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
