@@ -46,25 +46,20 @@
 
             function showNextImage() {
             images[currentImageIndex].classList.remove("active-image");
-            imageTexts[currentImageIndex].classList.remove("active-text"); // Removes the "active-text" class from the current text
+            imageTexts[currentImageIndex].classList.remove("active-text");
 
             currentImageIndex = (currentImageIndex + 1) % images.length;
 
             images[currentImageIndex].classList.add("active-image");
-            imageTexts[currentImageIndex].classList.add("active-text"); // Adds the "active-text" class to the next text
+            imageTexts[currentImageIndex].classList.add("active-text");
 
-            // Apply custom styles for active and inactive images
             images.forEach((image, index) => {
                 if (index === currentImageIndex) {
-                // Active image
-                image.style.filter = "blur(1px)";
-                image.style.transform = "scaleX(2)";
-                image.style.flex = "200px";
+                image.classList.add("active-image");
+                image.classList.remove("inactive-image");
                 } else {
-                // Inactive images
-                image.style.filter = "none";
-                image.style.transform = "none";
-                image.style.flex = "100px";
+                image.classList.add("inactive-image");
+                image.classList.remove("active-image");
                 }
             });
             }
@@ -75,6 +70,7 @@
             }
 
             startSlideshow();
+
 
             
           </script>
