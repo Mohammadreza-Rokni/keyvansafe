@@ -1,62 +1,145 @@
 /* main/static/css/style.css */
 body {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contents {
-    flex: 0 0 auto;
-    text-align: right;
-    margin-right: 40px;
+  flex: 0 0 auto;
+  text-align: right;
+  margin-right: 40px;
 }
 
 h1 {
-    font-size: 3rem;
-    color: #333;
+  font-size: 3rem;
+  color: #333;
 }
 
 p {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
 form {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 input[type="email"] {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 3px 0 0 3px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px 0 0 3px;
 }
 
 button[type="submit"] {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
 }
 .logo-container {
-    
-    flex: auto;
-    margin-left: 5px;
-  }
+  flex: auto;
+  margin-left: 5px;
+}
 .logo {
-    max-width: 70%;
-    max-height: 70%;
+  max-width: 70%;
+  max-height: 70%;
 }
 .content {
-    flex: 0 0 auto;
-    text-align: right;
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1500px; /* Change this value to make the container wider */
+  position: relative; /* Set to relative to allow absolute positioning of the text */
+}
+
+.image-container img {
+  /* Adjustments to make images wider and larger */
+  width: 300px;
+  height: 600px;
+  object-fit: cover;
+  margin: 0;
+  transition: opacity 0.5s, filter 0.5s;
+}
+
+.image-container img.active-image {
+  filter: blur(5px); /* Applies a blur effect to the active image */
+  transform: scale(1); /* Increase the size of the active image */
+  z-index: 100;
+  flex: 10; /* Make the active image wider than the other images */
+}
+
+.image-container .image-text1,
+.image-text2,
+.image-text3,
+.image-text4 {
+  position: absolute; /* Absolute position to overlay the text on the image */
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  display: none; /* Hide the text by default */
+  z-index: 101; /* Position the text above the image */
+  width: 100%; /* Set the width to 100% to ensure text width matches the image width */
+  text-align: center; /* Center the text horizontally */
+}
+
+.image-text1 {
+  bottom: 50%;
+  left: 13%;
+}
+
+.image-text2 {
+  bottom: 50%;
+  left: 38%;
+}
+
+.image-text3 {
+  bottom: 50%;
+  left: 63%;
+}
+
+.image-text4 {
+  bottom: 50%;
+  left: 87%;
+}
+
+.image-container img.active-image + .image-text1 {
+  display: block; /* Show the text when the image has the "active-image" class (i.e., is blurred) */
+}
+
+.image-container img.active-image + .image-text2 {
+  display: block; /* Show the text when the image has the "active-image" class (i.e., is blurred) */
+}
+
+.image-container img.active-image + .image-text3 {
+  display: block; /* Show the text when the image has the "active-image" class (i.e., is blurred) */
+}
+
+.image-container img.active-image + .image-text4 {
+  display: block; /* Show the text when the image has the "active-image" class (i.e., is blurred) */
 }

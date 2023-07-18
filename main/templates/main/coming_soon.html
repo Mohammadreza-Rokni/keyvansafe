@@ -1,19 +1,17 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="content">
-    <div class="jumbotron text-center">
-
-        <p>برای به روز ماندن در خبرنامه ما عضو شوید</p>
-        <form class="form-inline justify-content-center" method="post" action="{% url 'main:coming_soon' %}">
-            {% csrf_token %}
-            <div class="form-group mx-sm-3 mb-2">
-                {{ form.email }}
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">عضویت</button>
-        </form>
-    </div>
+  <div class="jumbotron text-center">
+    <p>برای به روز ماندن در خبرنامه ما عضو شوید</p>
+    <form
+      class="form-inline justify-content-center"
+      method="post"
+      action="{% url 'main:coming_soon' %}"
+    >
+      {% csrf_token %}
+      <div class="form-group mx-sm-3 mb-2">{{ form.email }}</div>
+      <button type="submit" class="btn btn-primary mb-2">عضویت</button>
+    </form>
+  </div>
 </div>
+
 {% endblock %}
-
-

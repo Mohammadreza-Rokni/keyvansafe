@@ -20,6 +20,45 @@
     </div>
     
         <hr>
+        <section>
+            <div class="image-container">
+                <img src="{% static 'images/clothes.png'%}" alt="Image 1" class="active-image" />
+                <div class="image-text image-text1">Image 1.</div>
+        
+                <img src="{% static 'images/firefighter.png' %}" alt="Image 2" />
+                <div class="image-text image-text2">Image 2.</div>
+        
+                <img
+                src="{% static 'images/hat.png' %}"
+                alt="Image 3"
+                />
+                <div class="image-text image-text3">Image 3.</div>
+        
+                <img src="{% static 'images/Rectangle.png' %}" alt="Image 4" />
+                <div class="image-text image-text4">Image 4.</div>
+            </div>
+        </section>
+      
+          <script>
+            let currentImageIndex = 0;
+            const images = document.querySelectorAll(".image-container img");
+            const imageTexts = document.querySelectorAll(".image-text ");
+      
+            function showNextImage() {
+              images[currentImageIndex].classList.remove("active-image");
+              imageTexts[currentImageIndex].classList.remove("active-text"); // Removes the "active-text" class from the current text
+              currentImageIndex = (currentImageIndex + 1) % images.length;
+              images[currentImageIndex].classList.add("active-image");
+              imageTexts[currentImageIndex].classList.add("active-text"); // Adds the "active-text" class to the next text
+            }
+      
+            function startSlideshow() {
+              showNextImage();
+              setTimeout(startSlideshow, 3000);
+            }
+      
+            startSlideshow();
+          </script>
         {% block content %} {% endblock %}
         
     </div>
