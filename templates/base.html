@@ -42,22 +42,41 @@
           <script>
             let currentImageIndex = 0;
             const images = document.querySelectorAll(".image-container img");
-            const imageTexts = document.querySelectorAll(".image-text ");
-      
+            const imageTexts = document.querySelectorAll(".image-text");
+
             function showNextImage() {
-              images[currentImageIndex].classList.remove("active-image");
-              imageTexts[currentImageIndex].classList.remove("active-text"); // Removes the "active-text" class from the current text
-              currentImageIndex = (currentImageIndex + 1) % images.length;
-              images[currentImageIndex].classList.add("active-image");
-              imageTexts[currentImageIndex].classList.add("active-text"); // Adds the "active-text" class to the next text
+            images[currentImageIndex].classList.remove("active-image");
+            imageTexts[currentImageIndex].classList.remove("active-text"); // Removes the "active-text" class from the current text
+
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+
+            images[currentImageIndex].classList.add("active-image");
+            imageTexts[currentImageIndex].classList.add("active-text"); // Adds the "active-text" class to the next text
+
+            // Apply custom styles for active and inactive images
+            images.forEach((image, index) => {
+                if (index === currentImageIndex) {
+                // Active image
+                image.style.filter = "blur(1px)";
+                image.style.transform = "scaleX(2)";
+                image.style.flex = "200px";
+                } else {
+                // Inactive images
+                image.style.filter = "none";
+                image.style.transform = "none";
+                image.style.flex = "100px";
+                }
+            });
             }
-      
+
             function startSlideshow() {
-              showNextImage();
-              setTimeout(startSlideshow, 3000);
+            showNextImage();
+            setTimeout(startSlideshow, 3000);
             }
-      
+
             startSlideshow();
+
+            
           </script>
         {% block content %} {% endblock %}
         

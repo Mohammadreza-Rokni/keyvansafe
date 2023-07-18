@@ -73,9 +73,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1650px; /* Change this value to make the container wider */
+  max-width: 1675px; /* Change this value to make the container wider */
   position: absolute; /* Set to relative to allow absolute positioning of the text */
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .image-container img {
@@ -87,11 +88,15 @@ section {
   transition: opacity 0.5s, filter 0.5s;
 }
 
+.image-container img {
+  transition: all 0.3s ease; /* Add smooth transition */
+}
+
 .image-container img.active-image {
-  filter: blur(4px); /* Applies a blur effect to the active image */
+  filter: blur(300px); /* Applies a blur effect to the active image */
   transform: scale(1.1); /* Increase the size of the active image */
   z-index: 100;
-  /* Make the active image wider than the other images */
+  flex: 100px;
 }
 
 .image-container .image-text1,
@@ -151,8 +156,30 @@ section {
   }
 
   .image-container img {
-    width: 350px; /* Adjust the image width for screens up to 1200px */
-    height: 600px; /* Adjust the image height for screens up to 1200px */
+    width: 245px; /* Adjust the image width for screens up to 1200px */
+    height: 1550px; /* Adjust the image height for screens up to 1200px */
+  }
+  section {
+    height: 76vh;
+  }
+  .image-container {
+    display: flex;
+    overflow: hidden;
+  }
+  .image-container img {
+    transition: all 0.3s ease; /* Add smooth transition */
+  }
+
+  .image-container img.active-image {
+    filter: blur(20px); /* Applies a blur effect to the active image */
+    transform: scaleX(3); /* Increase the size of the active image */
+    z-index: 100;
+    flex: 200px; /* Increases the size of the active image */
+  }
+  .image-container img:not(.active-image) {
+    filter: none;
+    transform: none;
+    flex: 100px; /* Reduces the size of the inactive images */
   }
 }
 
@@ -162,8 +189,8 @@ section {
   }
 
   .image-container img {
-    width: 250px; /* Adjust the image width for screens up to 768px */
-    height: 450px; /* Adjust the image height for screens up to 768px */
+    width: 245px; /* Adjust the image width for screens up to 768px */
+    height: 1050px; /* Adjust the image height for screens up to 768px */
   }
 
   /* You can add more specific adjustments or hide the overlay text at smaller screen sizes if needed */
@@ -172,5 +199,23 @@ section {
   .image-text3,
   .image-text4 {
     display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .image-text1,
+  .image-text2,
+  .image-text3,
+  .image-text4 {
+    font-size: 18px; /* Adjust the font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    padding: 0;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
   }
 }
